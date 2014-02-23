@@ -1,8 +1,8 @@
 simple web with springboot
 ==========================
 
-The project contains a simple web application, which is build with spring boot.
-Project is based on:
+This project contains a simple web application, which is build with spring boot.
+The project is based on:
  * spring-boot
  * spring-webmvc
  * spring-security
