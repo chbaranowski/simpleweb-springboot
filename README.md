@@ -1,4 +1,4 @@
-simpleweb-springboot
-====================
+simple web with springboot
+==========================
 
-Simple web application build with spring boot.
+The project contains a simple web application, which is build with spring boot.
