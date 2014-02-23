@@ -1,0 +1,37 @@
+buildscript {
+	ext {
+		springBootVersion = '1.0.0.RC3'
+	}
+	repositories {
+		mavenLocal()
+		maven { url "http://repo.springsource.org/libs-snapshot" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+mainClassName = "simpleblog.Application"
+
+repositories {
+	mavenCentral()
+	maven { url "http://repo.springsource.org/libs-snapshot" }
+}
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile("org.springframework.boot:spring-boot-starter-security")
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	compile("org.apache.tomcat.embed:tomcat-embed-jasper")
+	compile("org.hibernate:hibernate-validator")
+	compile("org.hsqldb:hsqldb")
+	compile("org.webjars:bootstrap:3.1.0")
+}
+
+task wrapper(type: Wrapper) { gradleVersion = '1.6' }
