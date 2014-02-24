@@ -19,8 +19,18 @@ public class BlogService {
 	}
 	
 	@Transactional
-	public void add(Post post) {
+	public void save(Post post) {
 		postRepository.save(post);
+	}
+	
+	@Transactional(readOnly = true)
+	public Post findPostById(Long id) {
+		return postRepository.findOne(id);
+	}
+	
+	@Transactional
+	public void deletePostById(Long id){
+		postRepository.delete(id);
 	}
 	
 }

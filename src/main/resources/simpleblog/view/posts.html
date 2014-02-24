@@ -5,7 +5,7 @@
 <body layout:fragment="content">
 	<div class="container">
 	<h1>Post</h1>
-	<form role="form" method="post" th:object="${post}">
+	<form role="form" method="post" th:object="${post}" th:action="@{/}">
 		<div class="form-group" th:name="title" th:errorclass="has-error" >
 			<label class="control-label" for="title">Titel</label> 
 			<input class="form-control" type="text" th:field="*{title}"/>
@@ -14,7 +14,9 @@
 			<label class="control-label" for="description">Description</label> 
 			<textarea class="form-control" th:field="*{description}"></textarea>
 		</div>
-		<button type="submit" class="btn btn-default" >Add</button>
+		<input type="hidden" th:field="*{id}"/>
+		<input type="hidden" th:field="*{version}"/>
+		<button type="submit" class="btn btn-default" >Save</button>
 	</form>
 	</div>
 	<div class="container" th:if="${!posts.empty}">
@@ -24,12 +26,16 @@
 		<tr>
 			<th>Titel</th>
 			<th>Description</th>
+			<th class="col-sm-1 sorter-false"></th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr th:each="post : ${posts}">
-			<td th:text="${post.title}">title</td>
+			<td><a th:href="@{'/'+${post.id}+'/edit'}" th:text="${post.title}">title</a></td>
 			<td th:text="${post.description}">description</td>
+			<td>
+				<a class="btn" th:href="@{'/'+${post.id}+'/delete'}"><span class="glyphicon glyphicon-trash"></span></a>
+			</td>
 		</tr>
 	</tbody>
 	</table>

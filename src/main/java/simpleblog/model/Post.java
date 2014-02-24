@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Version;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -26,6 +27,9 @@ public class Post implements Serializable {
 	@Column(nullable = false)
 	@NotEmpty
 	private String description;
+	
+	@Version
+	private Long version;
 
 	public String getTitle() {
 		return title;
@@ -54,6 +58,14 @@ public class Post implements Serializable {
 	@Override
 	public String toString() {
 		return title;
+	}
+
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
 	}
 	
 }

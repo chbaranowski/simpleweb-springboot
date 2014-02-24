@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,17 +27,29 @@ public class PostController {
 	}
 	
 	@RequestMapping("/")
-	public String posts(@ModelAttribute Post post) {
+	public String newPost(ModelMap model) {
+		model.put("post", new Post());
 		return "posts";
 	}
 	
+	@RequestMapping("/{id}/edit")
+	public String editPost(@PathVariable("id") Post post, ModelMap model) {
+		model.put("post", post);
+		return "posts";
+	}
+	
+	@RequestMapping("/{id}/delete")
+	public String deletePost(@PathVariable Long id) {
+		blogService.deletePostById(id);
+		return "redirect:/";
+	}
+	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String add(@Valid Post post, BindingResult result, ModelMap model) {
+	public String save(@Valid Post post, BindingResult result, ModelMap model) {
 		if(result.hasErrors()) {
 			return "posts";
 		}
-		blogService.add(post);
-		model.clear();
+		blogService.save(post);
 		return "redirect:/";
 	}
 	
