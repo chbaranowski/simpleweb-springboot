@@ -13,3 +13,5 @@ The project is based on:
 To start the web application invoke:
 
 	./gradlew bootRun
+
+Open the URL http://localhost:8080 in a web browser. Login with the username "spring" and password "boot".
