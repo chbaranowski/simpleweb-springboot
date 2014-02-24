@@ -20,6 +20,7 @@ public class Post implements Serializable {
 	
 	@Column(nullable = false)
 	@NotEmpty
+	@Title
 	private String title;
 
 	@Column(nullable = false)

@@ -12,7 +12,7 @@ buildscript {
 }
 
 apply plugin: 'war'
-apply plugin: 'eclipse-wtp'
+apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
@@ -33,7 +33,9 @@ dependencies {
 	compile("org.apache.tomcat.embed:tomcat-embed-jasper")
 	compile("org.hibernate:hibernate-validator")
 	compile("org.hsqldb:hsqldb")
+	compile("commons-lang:commons-lang:2.6")
 	compile("org.webjars:bootstrap:3.1.0")
+	compile("org.webjars:jquery:2.1.0-2")
 }
 
 task wrapper(type: Wrapper) { gradleVersion = '1.11' }
@@ -44,21 +46,3 @@ eclipseJdt << {
   resourcesPrefsFile.write('eclipse.preferences.version=1\n')
   resourcesPrefsFile.append("encoding/<project>=${project.sourceEncoding}")
 }
-
-// fix source code support in eclipse wtp
-eclipse {
-	classpath {
-	  containers.remove("org.eclipse.jdt.launching.JRE_CONTAINER")
-	  containers.add("org.eclipse.jdt.launching.JRE_CONTAINER")
-	  file {
-		withXml { xml ->
-		  def node = xml.asNode()
-		  def webContainer = node.find { 'org.eclipse.jst.j2ee.internal.web.container'  == it.@path }
-		  if(webContainer) {
-			node.remove(webContainer)
-			node.appendNode( 'classpathentry', [ kind: 'con', path: 'org.eclipse.jst.j2ee.internal.web.container', exported: 'true'])
-		  }
-		}
-	  }
-	}
-  }
