@@ -18,6 +18,8 @@ apply plugin: 'spring-boot'
 
 mainClassName = "simpleblog.Application"
 
+ext.sourceEncoding = "UTF-8"
+
 repositories {
 	mavenCentral()
 	maven { url "http://repo.springsource.org/libs-snapshot" }
@@ -35,3 +37,10 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) { gradleVersion = '1.11' }
+
+eclipseJdt << {
+  File resourcesPrefsFile = file('.settings/org.eclipse.core.resources.prefs')
+  resourcesPrefsFile.write('eclipse.preferences.version=1\n')
+  resourcesPrefsFile.append("encoding/<project>=${project.sourceEncoding}")
+}
+  
