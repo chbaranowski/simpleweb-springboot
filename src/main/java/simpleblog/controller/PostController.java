@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import simpleblog.model.EntryDoesNotExistException;
 import simpleblog.model.Post;
 import simpleblog.service.BlogService;
+import simpleblog.service.EntryDoesNotExistException;
 
 @Controller
 public class PostController {

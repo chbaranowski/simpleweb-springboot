@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import simpleblog.model.Post;
-import simpleblog.model.EntryDoesNotExistException;
 import simpleblog.model.PostRepository;
 
 @Service

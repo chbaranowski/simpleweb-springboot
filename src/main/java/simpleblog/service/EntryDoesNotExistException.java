@@ -1,4 +1,4 @@
-package simpleblog.model;
+package simpleblog.service;
 
 public class EntryDoesNotExistException extends RuntimeException {
 
