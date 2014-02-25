@@ -33,7 +33,8 @@ public class PostController {
 	}
 	
 	@RequestMapping("/")
-	public String newPost(@ModelAttribute Post post) {
+	public String newPost(ModelMap model) {
+		model.put("post", new Post());
 		return "posts";
 	}
 	
