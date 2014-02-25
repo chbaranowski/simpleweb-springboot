@@ -3,6 +3,9 @@
   		layout:decorator="layout">
 
 <body layout:fragment="content">
+	<div class="container">
+		<a th:href="@{/logout}">logout</a>
+	</div>
 	<div class="container msg" th:if="${msg}">
 		<p class="text-success" th:text="${msg}">msg</p>
 	</div>
@@ -11,7 +14,7 @@
 	</div>
 	<div class="container">
 	<h1>Post</h1>
-	<form role="form" method="post" th:object="${post}" th:action="@{/}">
+	<form method="post" th:object="${post}" th:action="@{/}">
 		<div class="form-group" th:name="title" th:errorclass="has-error" >
 			<label class="control-label" for="title">Titel</label> 
 			<input class="form-control" type="text" th:field="*{title}"/>
@@ -47,5 +50,4 @@
 	</table>
 	</div>
 </body>
-
 </html>
