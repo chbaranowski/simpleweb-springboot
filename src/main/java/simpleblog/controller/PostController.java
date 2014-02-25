@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import simpleblog.model.EntryDoesNotExistException;
 import simpleblog.model.Post;
 import simpleblog.service.BlogService;
 
@@ -31,14 +33,13 @@ public class PostController {
 	}
 	
 	@RequestMapping("/")
-	public String newPost(ModelMap model) {
-		model.put("post", new Post());
+	public String newPost(@ModelAttribute Post post) {
 		return "posts";
 	}
 	
 	@RequestMapping("/{id}/edit")
-	public String editPost(@PathVariable("id") Post post, ModelMap model) {
-		model.put("post", post);
+	public String editPost(@PathVariable Long id, ModelMap model) {
+		model.put("post", blogService.findPostById(id));
 		return "posts";
 	}
 	
@@ -58,18 +59,29 @@ public class PostController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping("/ping")
-	public @ResponseBody String ping() {
-		return "OK";
+	@RequestMapping(value = "/posts/error", method = RequestMethod.GET)
+	public String error(@RequestParam String msg, ModelMap model, RedirectAttributes redirect) {
+		redirect.addFlashAttribute("error", msg);
+		return "redirect:/";
 	}
 	
 	@ExceptionHandler(ObjectOptimisticLockingFailureException.class)
 	public ModelAndView optimisticLockingFailure() {
 		ModelMap model = new ModelMap();
-		model.put("error", 	"Optimistic Locking Failure!");
-		model.put("post", 	new Post());
-		model.put("posts",  blogService.getItems());
-		return new ModelAndView("posts", model);
+		model.put("msg", "Optimistic Locking Failure!");
+		return new ModelAndView("redirect:/posts/error", model);
+	}
+	
+	@ExceptionHandler(EntryDoesNotExistException.class)
+	public ModelAndView postDoesNotExist(EntryDoesNotExistException exp) {
+		ModelMap model = new ModelMap();
+		model.put("msg", String.format("Post entry with id %s no longer exists!", exp.getEntryId()));
+		return new ModelAndView("redirect:/posts/error", model);
+	}
+	
+	@RequestMapping("/ping")
+	public @ResponseBody String ping() {
+		return "OK";
 	}
 	
 }

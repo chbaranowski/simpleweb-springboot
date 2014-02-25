@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import simpleblog.model.Post;
+import simpleblog.model.EntryDoesNotExistException;
 import simpleblog.model.PostRepository;
 
 @Service
@@ -25,12 +26,20 @@ public class BlogService {
 	
 	@Transactional(readOnly = true)
 	public Post findPostById(Long id) {
-		return postRepository.findOne(id);
+		Post post = postRepository.findOne(id);
+		if(post == null) {
+			throw new EntryDoesNotExistException(id);
+		}
+		return post;
 	}
 	
 	@Transactional
-	public void deletePostById(Long id){
-		postRepository.delete(id);
+	public void deletePostById(Long id) {
+		Post post = postRepository.findOne(id);
+		if(post == null) {
+			throw new EntryDoesNotExistException(id);
+		}
+		postRepository.delete(post);
 	}
 	
 }
