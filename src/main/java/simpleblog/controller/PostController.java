@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import simpleblog.model.Post;
 import simpleblog.service.BlogService;
@@ -45,11 +46,12 @@ public class PostController {
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String save(@Valid Post post, BindingResult result, ModelMap model) {
+	public String save(@Valid Post post, BindingResult result, RedirectAttributes redirect) {
 		if(result.hasErrors()) {
 			return "posts";
 		}
 		blogService.save(post);
+		redirect.addFlashAttribute("msg", "Successfull save post entry!");
 		return "redirect:/";
 	}
 	
