@@ -1,6 +1,8 @@
 package simpleblog;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -9,7 +11,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 @EnableWebSecurity
+@PropertySource("classpath:/simpleblog/configuration/security-config.properties")
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+	
+	@Value("${default.username}")
+	String defaultUsername;
+	
+	@Value("${default.password}")
+	String defaultPassword;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -36,8 +45,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
 			.inMemoryAuthentication()
-				.withUser("spring")
-				.password("boot")
+				.withUser(defaultUsername)
+				.password(defaultPassword)
 				.roles("USER");
 	}
 	
