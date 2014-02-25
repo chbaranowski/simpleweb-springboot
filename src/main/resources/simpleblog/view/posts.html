@@ -6,6 +6,9 @@
 	<div class="container msg" th:if="${msg}">
 		<p class="text-success" th:text="${msg}">msg</p>
 	</div>
+	<div class="container error" th:if="${error}">
+		<p class="text-danger" th:text="${error}">error</p>
+	</div>
 	<div class="container">
 	<h1>Post</h1>
 	<form role="form" method="post" th:object="${post}" th:action="@{/}">
