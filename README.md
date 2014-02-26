@@ -10,6 +10,8 @@ The project is based on:
  * thymeleaf
  * hibernate-validator
 
+## Run Spring Boot Sample
+
 To start the web application invoke:
 
 	./gradlew bootRun
