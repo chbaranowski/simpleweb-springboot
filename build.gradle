@@ -11,8 +11,8 @@ buildscript {
 	}
 }
 
-apply plugin: 'war'
-apply plugin: 'eclipse-wtp'
+apply plugin: 'java'
+apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
@@ -47,21 +47,3 @@ eclipseJdt << {
   resourcesPrefsFile.write('eclipse.preferences.version=1\n')
   resourcesPrefsFile.append("encoding/<project>=${project.sourceEncoding}")
 }
-
-// fix source code support in wtp
-eclipse {
-	classpath {
-	  containers.remove("org.eclipse.jdt.launching.JRE_CONTAINER")
-	  containers.add("org.eclipse.jdt.launching.JRE_CONTAINER")
-	  file {
-		withXml { xml ->
-		  def node = xml.asNode()
-		  def webContainer = node.find { 'org.eclipse.jst.j2ee.internal.web.container'  == it.@path }
-		  if(webContainer) {
-			node.remove(webContainer)
-			node.appendNode( 'classpathentry', [ kind: 'con', path: 'org.eclipse.jst.j2ee.internal.web.container', exported: 'true'])
-		  }
-		}
-	  }
-	}
-  }
