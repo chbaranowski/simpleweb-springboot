@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="logback.xsd">
 
-	<!--
-
-	This file is the default logback configuration for Spring Boot. To use the same
-	defaults and add custom logger levels you can copy this file and add additional
-	overrides, e.g:
-
-	<include resource="org/springframework/boot/logging/logback/base.xml"/>
-	<logger name="org.springframework.web" level="DEBUG"/>
-	...
-
-    -->
-
-	<include resource="org/springframework/boot/logging/logback/base.xml" />
+	<include resource="org/springframework/boot/logging/logback/basic.xml"/>
 	
 </configuration>
