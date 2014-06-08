@@ -9,6 +9,7 @@ The project is based on:
  * spring-data-jpa
  * thymeleaf
  * hibernate-validator
+ * Jetty 9
 
 ## Run Spring Boot Sample
 
