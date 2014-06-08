@@ -12,6 +12,7 @@ configurations {
 }
 
 dependencies {
+    compile("org.springframework.boot:spring-boot-starter-actuator")
 	compile("org.springframework.boot:spring-boot-starter-web") 
 	compile("org.springframework.boot:spring-boot-starter-security")
 	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
@@ -25,8 +26,13 @@ dependencies {
 	compile("org.hibernate:hibernate-validator")
 	compile("org.hsqldb:hsqldb")
 	compile("commons-lang:commons-lang:2.6")
+	compile("commons-io:commons-io:2.4")
+	
 	compile("org.webjars:bootstrap:3.1.0")
 	compile("org.webjars:jquery:2.1.0-2")
+	
+	compile("io.github.jhipster.loaded:core:0.8")
+	compile("javax.inject:javax.inject:1")
 }
 
 task wrapper(type: Wrapper) { gradleVersion = '1.11' }
