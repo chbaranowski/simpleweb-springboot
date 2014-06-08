@@ -3,6 +3,7 @@ package simpleblog;
 import io.github.jhipster.loaded.JHipsterReloaderAutoConfiguration;
 import io.github.jhipster.loaded.reloader.SpringReloader;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
@@ -17,7 +18,8 @@ public class HotReloadConfiguration {
 	public static class HotReloadCondition implements Condition {
 		@Override
 		public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-			return context.getEnvironment().getProperty("hotReload.enabled").contains("true");
+			String hotReloadEnabledProperty = context.getEnvironment().getProperty("hotReload.enabled");
+			return StringUtils.equals(hotReloadEnabledProperty, "true");
 		}
 	}
 

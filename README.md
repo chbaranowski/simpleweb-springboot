@@ -7,9 +7,9 @@ The project is based on:
  * spring-webmvc
  * spring-security
  * spring-data-jpa
+ * tomcat
  * thymeleaf
  * hibernate-validator
- * Jetty 9
  
 ## Hot Deployment with Spring loaded and JHipster
 
