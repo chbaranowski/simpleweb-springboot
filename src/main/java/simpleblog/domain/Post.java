@@ -1,4 +1,4 @@
-package simpleblog.model;
+package simpleblog.domain;
 
 import java.io.Serializable;
 

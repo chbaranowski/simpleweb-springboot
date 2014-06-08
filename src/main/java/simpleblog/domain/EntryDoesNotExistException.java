@@ -1,4 +1,4 @@
-package simpleblog.service;
+package simpleblog.domain;
 
 public class EntryDoesNotExistException extends RuntimeException {
 

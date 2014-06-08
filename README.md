@@ -13,13 +13,17 @@ The project is based on:
  
 ## Hot Deployment with Spring loaded and JHipster
 
-To enable hot reloading of Java classes and spring context, add the following VM parameters
+Download the spring loaded agent by gradle
+	
+	./gradlew springLoaded
+
+Enable hot reloading of Java classes and spring context by adding the following VM parameters
 	
 	-javaagent:${project_loc:simpleweb-springboot}/springloaded-1.2.0.RELEASE.jar -noverify 
 	-DhotReload.enabled=true
 	-DhotReload.watchdir[0]=${project_loc:simpleweb-springboot}/bin
 	-DhotReload.package.project=simpleblog
-	-DhotReload.package.domain=simpleblog.service
+	-DhotReload.package.domain=simpleblog.domain
 	-DhotReload.package.restdto=simpleblog.rest
 
 ## Run Spring Boot Sample

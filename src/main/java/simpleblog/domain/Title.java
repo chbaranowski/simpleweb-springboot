@@ -1,4 +1,4 @@
-package simpleblog.model;
+package simpleblog.domain;
 
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 

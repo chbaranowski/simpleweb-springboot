@@ -1,11 +1,8 @@
-package simpleblog.service;
+package simpleblog.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import simpleblog.model.Post;
-import simpleblog.model.PostRepository;
 
 @Service
 public class BlogService {
