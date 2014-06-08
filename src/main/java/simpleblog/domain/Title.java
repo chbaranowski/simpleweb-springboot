@@ -10,7 +10,7 @@ import javax.validation.Payload;
 @Retention(RUNTIME)
 @Constraint(validatedBy = PostTitleValidator.class)
 public @interface Title {
-	 String message() default "{simpleblog.model.Post.title}";
-	 Class<?>[] groups() default {};
-	 Class<? extends Payload>[] payload() default {};
+	String message() default "{simpleblog.model.Post.title}";
+	Class<?>[] groups() default {};
+	Class<? extends Payload>[] payload() default {};
 }

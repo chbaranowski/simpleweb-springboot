@@ -20,12 +20,12 @@ public class HotReloadConfiguration {
 			return context.getEnvironment().getProperty("hotReload.enabled").contains("true");
 		}
 	}
-	
+
 	@Bean
 	public JHipsterReloaderAutoConfiguration reloaderAutoConfiguration() {
 		return new JHipsterReloaderAutoConfiguration();
 	}
-	
+
 	@Bean
 	public SpringReloader springReloader() {
 		return new SpringReloader();

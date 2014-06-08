@@ -18,7 +18,7 @@ public class Post implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
+
 	@Column(nullable = false)
 	@NotEmpty
 	@Title
@@ -27,7 +27,7 @@ public class Post implements Serializable {
 	@Column(nullable = false)
 	@NotEmpty
 	private String description;
-	
+
 	@Version
 	private Long version;
 
@@ -46,18 +46,13 @@ public class Post implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-	
-	@Override
-	public String toString() {
-		return title;
 	}
 
 	public Long getVersion() {
@@ -67,5 +62,5 @@ public class Post implements Serializable {
 	public void setVersion(Long version) {
 		this.version = version;
 	}
-	
+
 }
