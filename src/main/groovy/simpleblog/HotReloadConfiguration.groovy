@@ -1,4 +1,4 @@
-package simpleblog;
+package simpleblog
 
 import io.github.jhipster.loaded.JHipsterReloaderAutoConfiguration;
 import io.github.jhipster.loaded.reloader.SpringReloader;
@@ -13,23 +13,24 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 
 @Configuration
 @Conditional(HotReloadConfiguration.HotReloadCondition.class)
-public class HotReloadConfiguration {
+class HotReloadConfiguration {
 
-	public static class HotReloadCondition implements Condition {
+	static class HotReloadCondition implements Condition {
 		@Override
-		public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
+		boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
 			String hotReloadEnabledProperty = context.getEnvironment().getProperty("hotReload.enabled");
 			return StringUtils.equals(hotReloadEnabledProperty, "true");
 		}
 	}
 
 	@Bean
-	public JHipsterReloaderAutoConfiguration reloaderAutoConfiguration() {
+	JHipsterReloaderAutoConfiguration reloaderAutoConfiguration() {
 		return new JHipsterReloaderAutoConfiguration();
 	}
 
 	@Bean
-	public SpringReloader springReloader() {
+	SpringReloader springReloader() {
 		return new SpringReloader();
 	}
 }
+

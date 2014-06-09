@@ -12,6 +12,8 @@ configurations {
 }
 
 dependencies {
+	compile("org.codehaus.groovy:groovy-all:2.2.0")
+	
     compile("org.springframework.boot:spring-boot-starter-actuator")
 	compile("org.springframework.boot:spring-boot-starter-web") 
 	compile("org.springframework.boot:spring-boot-starter-security")

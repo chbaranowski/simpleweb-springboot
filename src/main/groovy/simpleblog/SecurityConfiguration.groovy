@@ -1,4 +1,4 @@
-package simpleblog;
+package simpleblog
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -12,12 +12,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 @PropertySource("classpath:/simpleblog/configuration/security-config.properties")
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
-	@Value("${default.username}")
+	@Value('${default.username}')
 	String defaultUsername;
 	
-	@Value("${default.password}")
+	@Value('${default.password}')
 	String defaultPassword;
 	
 	@Override
@@ -51,7 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 	
 	@Override
-	public void configure(WebSecurity web) throws Exception {
+	void configure(WebSecurity web) throws Exception {
 		web
 			.ignoring()
 				.antMatchers("/webjars/**")
@@ -61,3 +61,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 
 }
+

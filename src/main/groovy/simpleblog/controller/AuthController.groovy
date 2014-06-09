@@ -1,4 +1,4 @@
-package simpleblog.controller;
+package simpleblog.controller
 
 import java.util.Map;
 
@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class AuthController {
+class AuthController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(Map<String, Object> model) {
-		return "login";
+	String login(Map<String, Object> model) { 
+		"login" 
 	}
 
 }

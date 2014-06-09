@@ -20,5 +20,5 @@ repositories {
 	maven { url "http://repo.spring.io/snapshot" }
 }
 
-apply plugin: "java"
+apply plugin: "groovy"
 apply plugin: org.springframework.boot.gradle.SpringBootPlugin

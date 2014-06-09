@@ -1,4 +1,4 @@
-package simpleblog.domain;
+package simpleblog.domain
 
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
@@ -9,8 +9,8 @@ import javax.validation.Payload;
 
 @Retention(RUNTIME)
 @Constraint(validatedBy = PostTitleValidator.class)
-public @interface Title {
+@interface Title {
 	String message() default "{simpleblog.model.Post.title}";
-	Class<?>[] groups() default {};
-	Class<? extends Payload>[] payload() default {};
+	Class<?>[] groups() default [];
+	Class<? extends Payload>[] payload() default [];
 }
