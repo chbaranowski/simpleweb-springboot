@@ -32,12 +32,6 @@ dependencies {
 	compile("io.github.jhipster.loaded:core:0.8")
 	compile("javax.inject:javax.inject:1")
 	
-	springLoaded("org.springframework:springloaded:1.2.0.RELEASE")
-}
-
-task springLoaded(type: Copy) {
-    from configurations.springLoaded
-    into "${buildDir}/springloaded"
 }
 
 task wrapper(type: Wrapper) { gradleVersion = '1.11' }

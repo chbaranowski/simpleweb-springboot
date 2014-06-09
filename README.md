@@ -1,5 +1,5 @@
-simple web with spring boot
-===========================
+simple web with spring boot (Groovy Version)
+============================================
 
 This project contains a simple web application, which is build with spring boot and some common spring components.
 The project is based on:
@@ -11,21 +11,6 @@ The project is based on:
  * thymeleaf
  * hibernate-validator
  
-## Hot Deployment with Spring loaded and JHipster
-
-Download the spring loaded agent by gradle
-	
-	./gradlew springLoaded
-
-Enable hot reloading of Java classes and spring context by adding the following VM parameters
-	
-	-javaagent:${project_loc:simpleweb-springboot}/springloaded-1.2.0.RELEASE.jar -noverify 
-	-DhotReload.enabled=true
-	-DhotReload.watchdir[0]=${project_loc:simpleweb-springboot}/bin
-	-DhotReload.package.project=simpleblog
-	-DhotReload.package.domain=simpleblog.domain
-	-DhotReload.package.restdto=simpleblog.rest
-
 ## Run Spring Boot Sample
 
 To start the web application invoke:
