@@ -1,10 +1,13 @@
 package simpleblog.domain
 
+import groovy.transform.TypeChecked;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@TypeChecked
 public class BlogService {
 
 	@Autowired
