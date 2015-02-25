@@ -19,4 +19,6 @@ out/
 
 # Mac
 .DS_Store
+
+# Maven
 /target/
