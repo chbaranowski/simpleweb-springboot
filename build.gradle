@@ -12,6 +12,7 @@ configurations {
 }
 
 dependencies {
+	compile("javax.inject:javax.inject:1")
     compile("org.springframework.boot:spring-boot-starter-actuator")
 	compile("org.springframework.boot:spring-boot-starter-web") 
 	compile("org.springframework.boot:spring-boot-starter-security")
@@ -27,10 +28,8 @@ dependencies {
 	compile("org.webjars:bootstrap:3.1.0")
 	compile("org.webjars:jquery:2.1.0-2")
 	
-	compile("io.github.jhipster.loaded:core:0.8")
-	compile("javax.inject:javax.inject:1")
-	
-	springLoaded("org.springframework:springloaded:1.2.0.RELEASE")
+	compile("io.github.jhipster.loaded:core:0.12")
+	springLoaded("org.springframework:springloaded:1.2.1.RELEASE")
 }
 
 task springLoaded(type: Copy) {
@@ -38,4 +37,4 @@ task springLoaded(type: Copy) {
     into "${buildDir}/springloaded"
 }
 
-task wrapper(type: Wrapper) { gradleVersion = '1.11' }
+task wrapper(type: Wrapper) { gradleVersion = '2.3' }

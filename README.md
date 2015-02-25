@@ -19,7 +19,7 @@ Download the spring loaded agent by gradle
 
 Enable hot reloading of Java classes and spring context by adding the following VM parameters
 	
-	-javaagent:${project_loc:simpleweb-springboot}/springloaded-1.2.0.RELEASE.jar -noverify 
+	-javaagent:${project_loc:simpleweb-springboot}/build/springloaded/springloaded-1.2.1.RELEASE.jar -noverify 
 	-DhotReload.enabled=true
 	-DhotReload.watchdir[0]=${project_loc:simpleweb-springboot}/bin
 	-DhotReload.package.project=simpleblog
