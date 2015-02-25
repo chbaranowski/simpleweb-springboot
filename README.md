@@ -10,6 +10,17 @@ The project is based on:
  * tomcat
  * thymeleaf
  * hibernate-validator
+
+## Building CLI Spring Boot App
+
+The spring demo application can be build with maven or gradle. To build the application with some CLI start scripts use the maven goals:
+
+	mvn package appassembler:assemble
+	
+With Gradle the application with some start scripts can be build by the following Gradle command:
+
+	gradlew installApp
+	
  
 ## Hot Deployment with Spring loaded and JHipster
 

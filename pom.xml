@@ -10,6 +10,11 @@
 	<groupId>com.seitenbau.samples</groupId>
 	<artifactId>simpleweb-springboot</artifactId>
 	<version>0.1.0</version>
+	
+	<properties>
+		<start-class>simpleblog.Application</start-class>
+	</properties>
+	
 	<dependencies>
 
 		<dependency>
@@ -103,7 +108,7 @@
 					<programs>
 						<program>
 							<id>simpleblog</id>
-							<mainClass>simpleblog.Application</mainClass>
+							<mainClass>${start-class}</mainClass>
 						</program>
 					</programs>
 				</configuration>
