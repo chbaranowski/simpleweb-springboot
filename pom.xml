@@ -94,6 +94,20 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>appassembler-maven-plugin</artifactId>
+				<version>1.9</version>
+				<configuration>
+					<programs>
+						<program>
+							<id>simpleblog</id>
+							<mainClass>simpleblog.Application</mainClass>
+						</program>
+					</programs>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
