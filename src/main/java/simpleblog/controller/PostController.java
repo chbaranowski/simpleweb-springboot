@@ -26,14 +26,19 @@ public class PostController {
 	
 	@Autowired
 	BlogService blogService;
-
+	
 	@ModelAttribute("posts")
-	public Iterable<Post> posts() {
-	    return blogService.getItems();
+	public Iterable<Post> posts(@RequestParam(value = "q", defaultValue="*") String query) {
+	    return blogService.search(query);
+	}
+	
+	@ModelAttribute("q")
+	public String query(@RequestParam(value = "q", defaultValue="*") String query) {
+	    return query;
 	}
 	
 	@RequestMapping("/")
-	public String newPost(ModelMap model) {
+	public String newPost(@RequestParam(value = "q", defaultValue="*") String query, ModelMap model) {
 		model.put("post", new Post());
 		return "posts";
 	}
