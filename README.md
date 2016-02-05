@@ -1,5 +1,4 @@
-simple web with spring boot
-===========================
+#simple web with spring boot
 
 This project contains a simple web application, which is build with spring boot and some common spring components.
 The project is based on:
@@ -11,31 +10,28 @@ The project is based on:
  * thymeleaf
  * hibernate-validator
 
-## Building CLI Spring Boot App
+## Building Spring Boot Application
 
-The spring demo application can be build with maven or gradle. To build the application with some CLI start scripts use the maven goals:
+The spring demo application can be build with maven or gradle. To build the application as executable JAR use the maven goal:
 
-	mvn package appassembler:assemble
+	mvn package
+
+The application can be started by:
 	
-With Gradle the application with some start scripts can be build by the following Gradle command:
-
-	gradlew installApp
+	java -jar target/simpleweb-springboot-*.jar 
 	
+With Gradle the application can be build by the following Gradle command:
+
+	gradlew build
+
+Now the application can be started by the following command
+
+	java -jar build/libs/simpleweb-springboot.jar
  
 ## Hot Deployment with Spring loaded and JHipster
 
-Download the spring loaded agent by gradle
-	
-	./gradlew springLoaded
-
-Enable hot reloading of Java classes and spring context by adding the following VM parameters
-	
-	-javaagent:${project_loc:simpleweb-springboot}/build/springloaded/springloaded-1.2.1.RELEASE.jar -noverify 
-	-DhotReload.enabled=true
-	-DhotReload.watchdir[0]=${project_loc:simpleweb-springboot}/bin
-	-DhotReload.package.project=simpleblog
-	-DhotReload.package.domain=simpleblog.domain
-	-DhotReload.package.restdto=simpleblog.rest
+Since Spring Boot version 1.3.x spring loaded is not needed anymore. 
+To hot reload the application [Spring DevTools](http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-devtools) now can be used. 
 
 ## Run Spring Boot Sample
 
@@ -50,3 +46,7 @@ Open the URL http://localhost:8080 in a web browser. Login with the username "sp
 The eclipse project configurations files can be build with gradle, invoke gradle:
 
 	./gradlew eclipse
+
+Or invoke the maven goal:
+
+	mvn eclipse:eclipse

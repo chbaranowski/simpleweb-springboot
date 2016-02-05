@@ -5,18 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.2.1.RELEASE</version>
+		<version>1.3.2.RELEASE</version>
 	</parent>
+	
 	<groupId>com.seitenbau.samples</groupId>
 	<artifactId>simpleweb-springboot</artifactId>
 	<version>0.1.0</version>
-	
-	<properties>
-		<start-class>simpleblog.Application</start-class>
-	</properties>
-	
-	<dependencies>
 
+	<dependencies>
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
@@ -46,6 +42,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-logging</artifactId>
+		</dependency>
+		<!-- Spring Boot DevTools for hot reload -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 
 		<dependency>
@@ -80,17 +81,10 @@
 		</dependency>
 
 		<dependency>
-			<groupId>io.github.jhipster.loaded</groupId>
-			<artifactId>core</artifactId>
-			<version>0.12</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -98,20 +92,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>appassembler-maven-plugin</artifactId>
-				<version>1.9</version>
-				<configuration>
-					<programs>
-						<program>
-							<id>simpleblog</id>
-							<mainClass>${start-class}</mainClass>
-						</program>
-					</programs>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
